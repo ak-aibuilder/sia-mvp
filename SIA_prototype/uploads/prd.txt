@@ -1,0 +1,65 @@
+
+SIA
+Script Intelligence Agent
+
+Ember AI Pre-Bootcamp PRD
+Build Sprint Ready
+
+Vector Founder Fellowship
+Version 2.0  |  April 2026
+Confidential
+
+🧠 1. Product Overview
+What are you building? SIA (Script Intelligence Agent) is an agentic AI platform that gives screenwriting instructors instant, curriculum-aligned feedback on student scripts — with revision tracking across drafts and portfolio-level developmental insights across a semester.
+Who is it for? Screenwriting program instructors and administrators at film schools and online screenwriting bootcamps (e.g., Bommalaata, FTII, UCLA TFT Professional Programs).
+💥 2. Problem &amp; Context
+What is broken? Instructors spend 3–5 hours per student script providing structural feedback, multiplied across 20+ students per cohort. That’s 60–100 hours per feedback cycle — unsustainable, inconsistent, and unscalable.
+Current workaround: Instructors read each script manually, use rubrics on paper or Google Docs, and provide typed or handwritten notes. There are zero screenwriting-specific grading or feedback tools. Some use Turnitin for plagiarism but nothing for structural or narrative analysis.
+Why does this matter? Feedback bottlenecks mean students wait weeks for notes, revision cycles stall, weaker students get less attention, and instructor burnout limits program growth. Programs can’t scale cohort sizes without proportionally scaling instructor hours.
+✨ 3. Value Proposition
+Before: Instructor reads a 30-page short film script, manually identifies structural issues, writes 2 pages of notes, repeats for 20 students. Takes 60–100 hours per cycle. No memory of what was flagged on previous drafts.
+After: SIA pre-analyzes all 20 scripts overnight, flags structural issues against the instructor’s own syllabus, remembers what it flagged on Draft 1 and evaluates whether Draft 2 addressed those notes. Instructor reviews AI annotations and adds personal guidance in 30 minutes per student instead of 3–5 hours.
+⚡ 4. Core Workflow (MOST IMPORTANT)
+This is the heart of SIA — the Revision Coach Agent flow:
+Trigger: Student submits a new draft of their short film screenplay through SIA (or instructor uploads a batch of 20 scripts for the cohort).
+Action: SIA’s Revision Coach Agent compares the new draft against (a) the instructor’s syllabus criteria for that week, (b) prior draft feedback stored in the student’s profile, and (c) structural/narrative analysis benchmarks. It generates revision-aware notes: what improved, what regressed, and what remains unaddressed.
+Result: Instructor sees a pre-annotated dashboard: each student’s script with AI-flagged issues, a revision delta summary, and a cohort overview highlighting common patterns. Instructor approves, edits, or supplements the AI notes before releasing to students.
+🚀 5. “Aha Moment”
+When the instructor uploads 20 student scripts at 10pm and wakes up to a fully pre-annotated dashboard showing every student’s structural issues, revision progress from their previous draft, and a cohort summary of the three most common weaknesses to address in next week’s lecture.
+🎯 6. Priority Features (Max 5)
+Feature 1: Revision Coach Agent — Draft-over-draft comparison with persistent memory. Generates revision-aware feedback, not fresh analysis.
+Feature 2: Curriculum Alignment Engine — Instructor uploads syllabus; SIA adapts evaluation criteria to match what students should know by that week.
+Feature 3: Batch Processing + Instructor Dashboard — Upload 20 scripts, get all analyzed overnight. Dashboard shows per-student and cohort-level views.
+Feature 4: Portfolio Intelligence — Tracks each student’s work across a semester; surfaces persistent strengths and developmental gaps.
+Feature 5: Evaluation Consistency Engine — Pinned rubrics and normalized scoring ensure Student A and Student B are evaluated identically.
+🧩 7. Inputs &amp; Outputs
+Inputs: Screenplay files (PDF, FDX, TXT); instructor syllabus (PDF/text); prior draft history (stored in SIA database); cohort roster; evaluation rubric configuration.
+Outputs: Pre-annotated coverage report per script; revision delta summary (what changed since last draft); cohort analytics dashboard; per-student portfolio progression report; exportable feedback PDF for students.
+🔌 8. Integrations &amp; Constraints
+Integrations: Canvas / Google Classroom (assignment submission pipeline, Phase 2); email notifications for students when feedback is ready; CSV export for grades.
+Constraints: Scripts are encrypted in transit and at rest. SIA never trains AI models on uploaded scripts. Auto-purge after semester ends unless instructor opts to retain. Instructor reviews and approves all AI feedback before students see it.
+What it should NOT do: SIA does not write or rewrite scripts for students. It does not generate content. It does not replace the instructor’s judgment — it pre-processes and recommends; the instructor decides.
+🧠 9. Differentiation
+SIA is the Turnitin of screenwriting. No existing AI script tool serves education. ScriptSense/Cinelytic sells to Hollywood studios at $99+/mo. Prescene and Callaia serve individual writers. Filmustage does pre-production breakdowns. None of them offer revision tracking across drafts, curriculum-aligned evaluation, portfolio intelligence, or instructor dashboards. SIA is not competing with coverage tools — it’s creating a new category: agentic learning intelligence for creative education.
+🏁 10. MVP Scope (2-Day Build Sprint)
+Instructor uploads a single student screenplay (PDF) + a plain-text description of this week’s learning objectives. SIA returns a structured coverage report aligned to those objectives, with flagged issues and a summary. No batch processing, no revision tracking, no dashboard — just one script in, one curriculum-aligned report out. Proves the core value: AI feedback that adapts to what the instructor is teaching.
+🧪 11. Early Users
+User 1: Ajay Vegesna — Telugu screenwriter, runs Bommalaata screenwriting program. My former instructor. Direct warm connection. He reviews student short film scripts every cohort and would benefit from AI-assisted pre-annotation. I will pitch SIA as a pilot tool for his next cohort.
+Role: Screenwriting program instructor
+Why they would care: Spends 3–5 hours per student script on manual feedback. SIA could cut that by 40%+.
+
+User 2: FTII / Annapurna College instructor — Indian film school faculty teaching screenwriting fundamentals.
+Role: Film school instructor / department head
+Why they would care: High script volume, limited grading support. Reachable through Bommalaata case study.
+
+User 3: UCLA TFT Professional Programs instructor — I hold a screenwriting credential from this program.
+Role: University screenwriting instructor
+Why they would care: UCLA adoption = the logo that opens every other film school door globally.
+
+What I want to learn from them: (1) Does curriculum-aligned feedback actually save grading time, or do instructors rewrite the AI notes anyway? (2) Is revision tracking across drafts valuable enough to change their workflow? (3) What’s the maximum they’d pay per semester?
+📈 12. Success Criteria
+Ajay agrees to pilot SIA with his next Bommalaata cohort (validation of beachhead)
+Instructor feedback time drops by 40%+ per student script during pilot
+Students report that AI-assisted feedback is useful (&gt;70% positive in post-cohort survey)
+At least 1 additional Indian film school expresses interest after seeing Bommalaata results
+MVP demonstrates curriculum alignment working — feedback changes when syllabus context changes

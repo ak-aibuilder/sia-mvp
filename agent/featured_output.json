@@ -1,0 +1,71 @@
+{
+  "id": 1,
+  "findings": [
+    {
+      "type": "improved",
+      "criterion": "inciting",
+      "headline": "Inciting incident now lands on p.5 (the hire that starts the case)",
+      "priorDraft": "Draft 2 opened on the Water and Power hearing and held the visit from the woman calling herself Mrs. Mulwray until p.13. The engine of the plot, the setup that pulls Gittes in, started too late for the act to breathe.",
+      "currentDraft": "Draft 3 opens inside Gittes' office with the hire already underway. The fake Mrs. Mulwray retains him to follow her husband by p.5, so the surveillance job that drives Act One is moving roughly 8 pages sooner.",
+      "evidence": {
+        "page": 5,
+        "excerpt": "MRS. MULWRAY\nMy husband, I believe, is seeing another woman.\n\nGITTES\n(gravely)\nNo, really?\n\nMRS. MULWRAY\nI'm afraid so."
+      }
+    },
+    {
+      "type": "improved",
+      "criterion": "subtext",
+      "headline": "Cross's hire scene now plays its secret entirely on subtext (p.73)",
+      "priorDraft": "Draft 2 had Cross state his stake plainly, a line close to 'She is mine and I mean to have her.' The menace sat on the surface, so the scene had nowhere left to build.",
+      "currentDraft": "Draft 3 lets Cross hide behind courtesy. He keeps repeating 'Just find the girl' and calls her 'my daughter' while the audience does not yet know what that phrase costs him. The dread is carried by what he refuses to say, not by what he says.",
+      "evidence": {
+        "page": 73,
+        "excerpt": "CROSS\nJust find the girl, Mr. Gittes. I think she is frightened and I happen to know Hollis was fond of her.\n\nGITTES\nIf you want to hire me, I still have to know what you and Mulwray were arguing about.\n\nCROSS\n(painfully)\nWell... she's an extremely jealous person. I didn't want her to find out about the girl."
+      }
+    },
+    {
+      "type": "improved",
+      "criterion": "visual",
+      "headline": "The murder site is revealed through an object, not a line (p.111)",
+      "priorDraft": "Draft 2 confirmed where Mulwray drowned through a coroner's line of dialogue around p.108. Functional, but inert.",
+      "currentDraft": "Draft 3 stages the reveal in silence: the gardener fishes a pair of bent bifocals out of the salt pond and the cracked lens flares in the sun. The audience reads 'this is where he was killed' a full beat before anyone says it.",
+      "evidence": {
+        "page": 111,
+        "excerpt": "The Gardener lifts the object from the water and holds a pair of eye glasses, rimless, bent, his finger poking through the frame where one lens is shattered.\n\nGITTES looks at the glasses. They are heavily bifocal and reflect the sun."
+      }
+    },
+    {
+      "type": "regressed",
+      "criterion": "protagonist",
+      "headline": "Gittes' active want goes quiet once Cross hires him (p.73)",
+      "priorDraft": "Through Draft 2, Gittes wanted one clear thing: prove he was set up and find who killed Mulwray. The dramatic question was sharp and his.",
+      "currentDraft": "Draft 3 lets Cross redirect him onto 'find the girl,' and for about fifteen pages Gittes is running someone else's errand. His own want goes quiet and the middle drifts toward the romance with Evelyn before the spine reasserts itself. Replant his original goal inside the new assignment so he is never purely reactive.",
+      "evidence": null
+    },
+    {
+      "type": "unaddressed",
+      "criterion": "scene-econ",
+      "headline": "The Cross sequence at the club still runs past 3 pages",
+      "priorDraft": "Flagged in Draft 1 and again in Draft 2: the lunch and grounds sequence with Cross plays long, stalling the act on information the audience has half-guessed.",
+      "currentDraft": "Draft 3 trims a few exchanges but the sequence still crosses 4 pages. Split it across two shorter beats, or push the talk under an action (the koi pond, the photographs) so the scene keeps moving while they speak.",
+      "evidence": null
+    },
+    {
+      "type": "unaddressed",
+      "criterion": "midpoint",
+      "headline": "Midpoint reversal is present but lands late (~p.73) and plays quiet",
+      "priorDraft": "Draft 1 note: 'the case stops being about adultery too late.' Draft 2 note: 'the turn is there but buried in a calm dialogue scene, give it a visible cost.'",
+      "currentDraft": "Draft 3 keeps the reversal (Cross hiring Gittes turns the adultery job into a murder-and-water case) but it still arrives near page 73 and is agreed to over a handshake. The story would lift if the turn cost Gittes something on the page rather than being a quiet exchange he simply accepts.",
+      "evidence": null
+    }
+  ],
+  "summary": {
+    "improved": 3,
+    "regressed": 1,
+    "unaddressed": 2,
+    "draftPage": 131,
+    "priorPage": 138,
+    "overallTrend": "up",
+    "note": "Net positive revision. The faster open and the subtext in the Cross scenes are real gains, and the silent handling of the bifocals is the strongest visual beat in the script. Steer Priya's notes toward two things: restoring Gittes' active want through the middle stretch, and giving the page 73 midpoint a visible cost. The scene economy flag is now three drafts old, so it is worth a direct conversation."
+  }
+}
