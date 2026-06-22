@@ -58,7 +58,7 @@ EACH FINDING is an object with:
   - headline: one specific line, referencing the actual screenplay (a page, a scene, a character)
   - priorDraft: what the prior draft did on this criterion (you may construct this plausibly)
   - currentDraft: what the current draft does on this criterion, with specifics
-  - evidence: either null, or { "page": <int>, "excerpt": <string> }. Include evidence when you can \
+  - evidence: either null, or {{ "page": <int>, "excerpt": <string> }}. Include evidence when you can \
 cite a specific moment. Format the excerpt like screenplay text: CHARACTER NAMES IN ALL CAPS, \
 parentheticals in (parens), action lines in present tense. Use \\n for line breaks.
 
@@ -84,9 +84,58 @@ OUTPUT FORMAT. Return ONLY a single JSON object, no prose, no code fences, match
 The summary counts MUST equal the actual number of findings of each type."""
 
 
-def build_system_prompt():
+COMPARE_PROMPT = """You are the SIA Revision Coach, a screenwriting pedagogy expert who reads student \
+screenplays for a graduate-level workshop and writes craft notes for the instructor.
+
+You evaluate CRAFT, never creativity. You never say a story "should have gone differently." You say \
+"the structural choice on page X achieves (or fails to achieve) Y." You are specific, generous, and \
+exacting, the way a good thesis advisor is.
+
+THE RUBRIC (Week 4). Evaluate the screenplay against exactly these six criteria:
+{rubric}
+
+YOU ARE GIVEN TWO REAL DRAFTS of the same screenplay: the PRIOR draft (call it Draft 2) and the \
+CURRENT draft (call it Draft 3). Compare them. This is a genuine draft-over-draft diff, so ground \
+every observation in what actually changed between the two texts. Do not invent changes.
+
+EACH FINDING is an object with:
+  - type: one of "improved" | "regressed" | "unaddressed"
+      improved    = the current draft is measurably better on this criterion than the prior draft
+      regressed   = the current draft is worse on this criterion than the prior draft
+      unaddressed = a weakness present in the prior draft that this draft did not fix
+  - criterion: one of the six rubric ids above (use the id, not the label)
+  - headline: one specific line, referencing the actual screenplay (a page, a scene, a character)
+  - priorDraft: what the PRIOR draft did on this criterion, with specifics from that text
+  - currentDraft: what the CURRENT draft does on this criterion, with specifics from that text
+  - evidence: either null, or {{ "page": <int>, "excerpt": <string> }}. Cite a page number from the \
+CURRENT draft when you can. Format the excerpt like screenplay text: CHARACTER NAMES IN ALL CAPS, \
+parentheticals in (parens), action in present tense. Use \\n for line breaks.
+
+HARD CONSTRAINTS:
+  - Produce one finding per criterion that has something worth saying. Cover the full range of types. \
+A real revision has at least one regression or unaddressed item, not only improvements.
+  - Every finding must reference a specific, real difference between the two drafts.
+  - The summary.note reads like advice to the INSTRUCTOR ("steer their notes toward..."), not the student.
+  - NO EM DASHES anywhere in your output. Use commas, colons, hyphens, or parentheses instead.
+
+OUTPUT FORMAT. Return ONLY a single JSON object, no prose, no code fences, matching exactly:
+{{
+  "id": 1,
+  "findings": [ {{ "type": ..., "criterion": ..., "headline": ..., "priorDraft": ..., "currentDraft": ..., "evidence": ... }} ],
+  "summary": {{
+    "improved": <int>, "regressed": <int>, "unaddressed": <int>,
+    "draftPage": <int>, "priorPage": <int>,
+    "overallTrend": "up" | "down" | "flat",
+    "note": <2-3 sentence instructor-facing string>
+  }}
+}}
+The summary counts MUST equal the actual number of findings of each type."""
+
+
+def build_system_prompt(compare=False):
     rubric = "\n".join("  - {id}: {label}".format(**c) for c in WEEK4_CRITERIA)
-    return SYSTEM_PROMPT.format(rubric=rubric)
+    template = COMPARE_PROMPT if compare else SYSTEM_PROMPT
+    return template.format(rubric=rubric)
 
 
 def extract_json(text):
@@ -103,16 +152,26 @@ def extract_json(text):
     return json.loads(text[start:end + 1])
 
 
-def analyze_screenplay(screenplay_text, model):
+def analyze_screenplay(screenplay_text, model, prior_text=None, title=None):
+    """Analyze one screenplay. If prior_text is given, do a real draft-over-draft
+    comparison (prior = Draft 2, screenplay_text = Draft 3) instead of constructing
+    a hypothetical prior draft."""
     import anthropic  # imported lazily so the file is readable without the SDK installed
     client = anthropic.Anthropic()
+    if prior_text:
+        label = title or "this screenplay"
+        user = (
+            "Compare these two drafts of {0}.\n\n"
+            "===== PRIOR DRAFT (Draft 2) =====\n\n{1}\n\n"
+            "===== CURRENT DRAFT (Draft 3) =====\n\n{2}"
+        ).format(label, prior_text, screenplay_text)
+    else:
+        user = "Analyze this screenplay:\n\n" + screenplay_text
     response = client.messages.create(
         model=model,
         max_tokens=4096,
-        system=build_system_prompt(),
-        messages=[
-            {"role": "user", "content": "Analyze this screenplay:\n\n" + screenplay_text}
-        ],
+        system=build_system_prompt(compare=bool(prior_text)),
+        messages=[{"role": "user", "content": user}],
     )
     return extract_json(response.content[0].text)
 

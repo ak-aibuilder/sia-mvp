@@ -3,7 +3,7 @@
 function StudentScreen({ go, studentId }) {
   const { COHORT, WEEK4_CRITERIA, FEATURED } = window.SIA_DATA;
   const student = COHORT.find(s => s.id === studentId) || COHORT[0];
-  const isFeatured = student.id === 1;
+  const isFeatured = student.id === FEATURED.id;
   const [activeFinding, setActiveFinding] = React.useState(0);
   const [approved, setApproved] = React.useState({});
   const [filterType, setFilterType] = React.useState('all');
@@ -60,15 +60,15 @@ function StudentScreen({ go, studentId }) {
         </div>
         <div className="coach-deltas">
           <div className="coach-delta improved">
-            <div className="cd-num">{isFeatured ? 3 : student.improved}</div>
+            <div className="cd-num">{isFeatured ? FEATURED.summary.improved : student.improved}</div>
             <div className="cd-label">Improved</div>
           </div>
           <div className="coach-delta regressed">
-            <div className="cd-num">{isFeatured ? 1 : student.regressed}</div>
+            <div className="cd-num">{isFeatured ? FEATURED.summary.regressed : student.regressed}</div>
             <div className="cd-label">Regressed</div>
           </div>
           <div className="coach-delta unaddressed">
-            <div className="cd-num">{isFeatured ? 2 : student.unaddressed}</div>
+            <div className="cd-num">{isFeatured ? FEATURED.summary.unaddressed : student.unaddressed}</div>
             <div className="cd-label">Unaddressed</div>
           </div>
         </div>
@@ -187,7 +187,7 @@ function StudentScreen({ go, studentId }) {
 
               <div className="instructor-note">
                 <div className="in-eyebrow">Your addendum to this note</div>
-                <textarea placeholder="Add a personal note to the student. SIA's analysis sits above — yours below." defaultValue={current.type === 'unaddressed' ? "Priya — we've talked about the midpoint twice now. Let's block 30min on Friday to walk through p.14–16 together. This is holding the rest of your revision back." : ''}/>
+                <textarea placeholder="Add a personal note to the student. SIA's analysis sits above — yours below." defaultValue={current.type === 'unaddressed' ? `${student.name.split(' ')[0]} — this one's been flagged before. Let's block 30min to work through it together; it's holding the rest of your revision back.` : ''}/>
               </div>
             </div>
           )}

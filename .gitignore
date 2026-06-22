@@ -1,1 +1,4 @@
 .gstack/
+agent/.venv/
+.env.local
+agent/.env.local
