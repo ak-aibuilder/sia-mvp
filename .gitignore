@@ -2,3 +2,4 @@
 agent/.venv/
 .env.local
 agent/.env.local
+.claude/settings.local.json

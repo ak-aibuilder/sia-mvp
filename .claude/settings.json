@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/python -c \"import flask, pypdf, anthropic; print\\('deps ok'\\)\")",
+      "Bash(lsof -ti:8731 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)",
+      "Bash(find / -maxdepth 6 -iname \"chromium-cli*\")",
+      "Bash(find / -maxdepth 8 -iname \"*chromium-cli*\")",
+      "Bash(/Users/akalidindi/.claude/skills/gstack/browse/dist/browse snapshot *)",
+      "Bash(/Users/akalidindi/.claude/skills/gstack/browse/dist/browse text *)",
+      "Bash(/Users/akalidindi/.claude/skills/gstack/browse/dist/browse attrs *)",
+      "Bash(git fetch *)",
+      "Bash(git config *)",
+      "Bash(gh api *)",
+      "Bash(GIT_COMMITTER_NAME='Aditya Kalidindi' GIT_COMMITTER_EMAIL=62443682+ak-aibuilder@users.noreply.github.com git commit --amend --no-edit '--author=Aditya Kalidindi <62443682+ak-aibuilder@users.noreply.github.com>')",
+      "Bash(git merge *)"
+    ]
+  }
+}
